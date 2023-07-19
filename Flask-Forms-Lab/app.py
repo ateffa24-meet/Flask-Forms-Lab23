@@ -30,7 +30,11 @@ def login():
 	
 @app.route('/home',methods=['GET', 'POST'])
 def home():
-	return render_template('home.html')
+	return render_template('home.html', friends = facebook_friends)
+
+@app.route('/friend_exists/<string:name>')
+def friend_exists(name):
+	return render_template('friend_exists.html', name=name, friends = facebook_friends)
 
   
 
